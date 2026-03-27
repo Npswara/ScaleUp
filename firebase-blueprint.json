@@ -1,0 +1,45 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User account information",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "User's email address"
+        },
+        "passwordHash": {
+          "type": "string",
+          "description": "Hashed password"
+        },
+        "isVerified": {
+          "type": "boolean",
+          "description": "Whether the email is verified"
+        },
+        "verificationToken": {
+          "type": "string",
+          "description": "Token for email verification"
+        },
+        "tokenExpiry": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Expiry time for the verification token"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time when the user was created"
+        }
+      },
+      "required": ["email", "passwordHash", "isVerified", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "Collection of user documents"
+    }
+  }
+}

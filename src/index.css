@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-primary: #0A2463; /* Deep Sea Blue */
+  --color-brand-secondary: #D4AF37; /* Muted Gold */
+  --color-surface-bg: #F9F8F6; /* Warm Paper */
+  --color-surface-card: #ffffff;
+  --color-text-main: #000000; /* Pure Black */
+  --color-text-muted: #333333; /* Darker Gray for better contrast */
+  --color-border-light: #B0B0B0; /* Even more visible border */
+}
+
+@layer base {
+  body {
+    @apply bg-surface-bg text-text-main font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .card-standard {
+    @apply bg-surface-card rounded-none border border-border-light shadow-none hover:border-text-main transition-all duration-500;
+  }
+  
+  .button-primary {
+    @apply bg-black text-white font-bold px-8 py-4 rounded-full hover:scale-[1.02] active:scale-90 transition-all uppercase tracking-widest text-xs disabled:opacity-50;
+  }
+
+  .button-secondary {
+    @apply bg-transparent text-text-main border border-text-main font-bold px-8 py-4 rounded-full hover:bg-text-main hover:text-white transition-all active:scale-95 uppercase tracking-widest text-xs;
+  }
+  
+  .glass-light {
+    @apply bg-white/40 backdrop-blur-xl border border-white/10;
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-border-light);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+  }
+}
+
+.markdown-body {
+  @apply text-text-main leading-relaxed font-sans;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  @apply text-text-main font-serif font-medium mb-4 mt-8;
+}
+
+.markdown-body p {
+  @apply mb-4 opacity-90;
+}
+
+.markdown-body ul {
+  @apply list-disc list-inside mb-4 space-y-2;
+}
+
+.markdown-body li {
+  @apply mb-1;
+}

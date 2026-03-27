@@ -1,0 +1,7 @@
+{
+  "name": "Scaleup: Career Intelligence",
+  "description": "A strategic ecosystem for the modern professional. Built with AI, refined by human ambition.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
